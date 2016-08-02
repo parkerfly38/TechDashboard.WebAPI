@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TechDashboardWEBAPI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="isUsingHttps" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="sDataUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">jobops2016adev.rkldev.local/sdata/MasApp/MasContract/JOB/</Value>
+    </Setting>
+    <Setting Name="userId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sdata</Value>
+    </Setting>
+    <Setting Name="password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RKLsupp@rt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
