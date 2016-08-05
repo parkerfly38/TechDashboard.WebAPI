@@ -481,10 +481,571 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:TechDashboardWEBAPI.Controllers.v16Controller">
+            <summary>
+            Version 1.6 REST api for Job Ops Tech Dashboard
+            </summary>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.TestConnection">
+            <summary>
+            Test connection service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetSO_SalesOrderDetail(System.String,System.String)">
+            <summary>
+            Gets SO_SalesOrderDetail records by filter
+            </summary>
+            <param name="filterType"></param>
+            <param name="v"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllSO_SalesOrderDetail">
+            <summary>
+            Gets all SO_SalesOrderDetail records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAR_Customer(System.String,System.String)">
+            <summary>
+            Get AR_Customer by varying criteria.
+            </summary>
+            <param name="filterType">clause for query</param>
+            <param name="v">body of filter clause</param>
+            <returns>AR_Customer</returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAR_CustomerPost(System.String,System.String)">
+            <summary>
+            Get AR_Customer by varying criteria.
+            </summary>
+            <param name="filterType">clause for query</param>
+            <param name="v">body of filter clause</param>
+            <returns>AR_Customer</returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllAR_Customer">
+            <summary>
+            Get all AR_Customer records
+            </summary>
+            <returns>AR_Customer</returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAR_CustomerContact(System.String,System.String)">
+            <summary>
+            Get AR_CustomerContact records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns>AR_CustomerContact</returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAR_CustomerContactPost(System.String,System.String)">
+            <summary>
+            Get AR_CustomerContact records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns>AR_CustomerContact</returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllAR_CustomerContact">
+            <summary>
+            All AR_CustomerContact records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetCI_Item(System.String,System.String)">
+            <summary>
+            Gets CI_Items with filter clause
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllCI_Item">
+            <summary>
+            Returns all CI_Item records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetIM_ItemWarehouse(System.String,System.String)">
+            <summary>
+            Gets IM_ItemWarehouse records with filter clause
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllIM_ItemWarehouse">
+            <summary>
+            Gets all IM_ItemWarehouse records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_ActivityCode(System.String,System.String)">
+            <summary>
+            Gets JT_ActivityCode records with filter clause
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_ActivityCode">
+            <summary>
+            Gets all JT_ActivityCode records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_ClassificationCode(System.String,System.String)">
+            <summary>
+            Gets JT_ClassificationCode records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_ClassificationCode">
+            <summary>
+            Gets all JT_ClassificationCode records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_CustomerBillingRates(System.String,System.String)">
+            <summary>
+            Gets JT_CustomerBillingRates records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_CustomerBillingRates">
+            <summary>
+            Gets all JT_CustomerBillingRates records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_DailyTimeEntry(System.String,System.String)">
+            <summary>
+            Gets JT_DailyTimeEntry records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_DailyTimeEntry">
+            <summary>
+            Gets all JT_DailyTimeEntry records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_EarningsCode(System.String,System.String)">
+            <summary>
+            Gets JT_EarningsCode records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_EarningsCode">
+            <summary>
+            Gets all JT_EarningsCode records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_Employee(System.String,System.String)">
+            <summary>
+            Gets JT_Employee records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_Employee">
+            <summary>
+            Gets all JT_Employee records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_EquipmentAsset(System.String,System.String)">
+            <summary>
+            Gets JT_EquipmentAsset records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_EquipmentAsset">
+            <summary>
+            Gets all JT_EquipmentAsset records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_FieldServiceOptions(System.String,System.String)">
+            <summary>
+            Gets JT_FieldServiceOptions records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_FieldServiceOptions">
+            <summary>
+            Gets all JT_FieldServiceOptions records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_FSDCommunication(System.String,System.String)">
+            <summary>
+            Gets JT_FSDCommunication records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_FSDCommunication">
+            <summary>
+            Gets all JT_FSDCommunication records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_LaborText(System.String,System.String)">
+            <summary>
+            Gets JT_LaborText records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_LaborText">
+            <summary>
+            Gets all JT_LaborText records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_MiscellaneousCodes(System.String,System.String)">
+            <summary>
+            Gets JT_MiscellaneousCodes by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_MiscellaneousCodes">
+            <summary>
+            Gets all JT_MiscellaneousCodes records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_Options(System.String,System.String)">
+            <summary>
+            Gets JT_Options records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_Options">
+            <summary>
+            Gets all JT_Options records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_ServiceAgreementDetail(System.String,System.String)">
+            <summary>
+            Gets JT_ServiceAgreementDetail records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_ServiceAgreementDetailPost(System.String,System.String)">
+            <summary>
+            Gets JT_ServiceAgreementDetail records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_ServiceAgreementDetail">
+            <summary>
+            Gets all JT_ServiceAgreementDetail records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_ServiceAgreementHeader(System.String,System.String)">
+            <summary>
+            Gets JT_ServiceAgreementHeader records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_ServiceAgreementHeader">
+            <summary>
+            Gets all JT_ServiceAgreementHeader records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_ServiceAgreementPMDetail(System.String,System.String)">
+            <summary>
+            Gets JT_ServiceAgreementPMDetail records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_ServiceAgreementPMDetail">
+            <summary>
+            Gets all JT_ServiceAgreementPMDetail records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_ServiceEquipmentParts(System.String,System.String)">
+            <summary>
+            Gets JT_ServiceEquipmentParts by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_ServiceEquipmentPartsPost(System.String,System.String)">
+            <summary>
+            Gets JT_ServiceEquipmentParts by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_ServiceEquipmentPartsl">
+            <summary>
+            Gets all JT_ServiceEquipmentParts records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_Technician(System.String,System.String)">
+            <summary>
+            Gets JT_Technician records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_Technician">
+            <summary>
+            Gets all JT_Technician records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.UpdateJT_Technician(Rkl.Erp.Sage.Sage100.TableObjects.JT_Technician)">
+            <summary>
+            Update JT_Technician
+            </summary>
+            <param name="technician"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_TechnicianScheduleDetail(System.String,System.String)">
+            <summary>
+            Gets JT_TechnicianScheduleDetail records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_TechnicianScheduleDetail">
+            <summary>
+            Gets all JT_TechnicianScheduleDetail records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_TechnicianStatus(System.String,System.String)">
+            <summary>
+            Gets JT_TechnicianStatus records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_TechnicianStatus">
+            <summary>
+            Gets all JT_TechnicianStatus records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_TemplateParts(System.String,System.String)">
+            <summary>
+            Gets JT_TemplateParts records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_TemplateParts">
+            <summary>
+            Gets all JT_TemplateParts records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_Transaction(System.String,System.String)">
+            <summary>
+            Gets JT_Transaction records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_Transaction">
+            <summary>
+            Gets all JT_Transaction records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_TransactionHistory(System.String,System.String)">
+            <summary>
+            Gets JT_TransactionHistory records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_TransactionHistory">
+            <summary>
+            Gets all JT_TransactionHistory records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_TransactionImportDetail(System.String,System.String)">
+            <summary>
+            Gets JT_TransactionImportDetail records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_TransactionImportDetail">
+            <summary>
+            Gets all JT_TransactionImportDetail records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.InsertJT_TransactionImportDetail(Rkl.Erp.Sage.Sage100.TableObjects.JT_TransactionImportDetail)">
+            <summary>
+            Inserts a new JT_TransactionImportDetail record
+            </summary>
+            <param name="importDetail"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_WorkTicket(System.String,System.String)">
+            <summary>
+            Gets JT_WorkTicket records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_WorkTicket">
+            <summary>
+            Gets all JT_WorkTicket records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_WorkTicketAttachment(System.String,System.String)">
+            <summary>
+            Gets JT_WorkTicketAttachment records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_WorkTicketAttachment">
+            <summary>
+            Gets all JT_WorkTicketAttachment records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_WorkTicketClass(System.String,System.String)">
+            <summary>
+            Gets JT_WorkTicketClass records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_WorkTicketClass">
+            <summary>
+            Gets all JT_WorkTicketClass records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_WorkTicketHistory(System.String,System.String)">
+            <summary>
+            Gets JT_WorkTicketHistory records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_WorkTicketHistory">
+            <summary>
+            Gets all JT_WorkTicketHistory records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_WorkTicketText(System.String,System.String)">
+            <summary>
+            Gets JT_WorkTicketText records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_WorkTicketText">
+            <summary>
+            Gets all JT_WorkTicketText records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetSO_SalesOrderHeader(System.String,System.String)">
+            <summary>
+            Gets SO_SalesOrderHeader records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllSO_SalesOrderHeader">
+            <summary>
+            Gets all SO_SalesOrderHeader records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetSO_ShipToAddress(System.String,System.String)">
+            <summary>
+            Gets SO_ShipToAddress records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetSO_ShipToAddressPost(System.String,System.String)">
+            <summary>
+            Gets SO_ShipToAddress records by filter with post
+            </summary>
+            <param name="filterType"></param>
+            <param name="filterTextEncoded"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllSO_ShipToAddress">
+            <summary>
+            Gets all SO_ShipToAddress records
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TechDashboardWEBAPI.Controllers.v1Controller">
             <summary>
             Version 1 REST api for Job Ops Tech Dashboard
             </summary>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v1Controller.TestConnection">
+            <summary>
+            Test connection service
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:TechDashboardWEBAPI.Controllers.v1Controller.GetAR_Customer(System.String,System.String)">
             <summary>

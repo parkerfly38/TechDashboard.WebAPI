@@ -66,3 +66,5 @@ c:\users\bkresge\documents\visual studio 2015\Projects\TechDashboardWEBAPI\TechD
 c:\users\bkresge\documents\visual studio 2015\Projects\TechDashboardWEBAPI\TechDashboardWEBAPI\obj\Release\TechDashboardWEBAPI.csprojResolveAssemblyReference.cache
 c:\users\bkresge\documents\visual studio 2015\Projects\TechDashboardWEBAPI\TechDashboardWEBAPI\obj\Release\TechDashboardWEBAPI.dll
 c:\users\bkresge\documents\visual studio 2015\Projects\TechDashboardWEBAPI\TechDashboardWEBAPI\obj\Release\TechDashboardWEBAPI.pdb
+C:\Users\bkresge\Documents\Visual Studio 2015\Projects\TechDashboardWEBAPI\TechDashboardWEBAPI\bin\System.Linq.Dynamic.dll
+C:\Users\bkresge\Documents\Visual Studio 2015\Projects\TechDashboardWEBAPI\TechDashboardWEBAPI\bin\Rkl.Erp.Sage.Sage100.TableObjects.dll

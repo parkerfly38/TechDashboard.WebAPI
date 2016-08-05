@@ -84,7 +84,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Rkl.Erp.Sage.Sage100.TableObjects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Rkl.Erp.Sage.Sage100.TableObjects.dll</HintPath>
+      <HintPath>..\..\Tech Dashboard\ExternalReferences\Rkl.Erp.Sage.Sage100.TableObjects.dll</HintPath>
     </Reference>
     <Reference Include="Rkl.Erp.Sage.SData.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -93,6 +93,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.5840.25917, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.6\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -203,6 +207,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\v1.6Controller.cs" />
     <Compile Include="Controllers\v1Controller.cs" />
     <Compile Include="DataAccess\ConnectionFactory.cs" />
     <Compile Include="DataAccess\DBMapper.cs" />
@@ -250,6 +255,7 @@
     <Compile Include="ServiceCode\TdWsService_JT_WorkTicketClass.cs" />
     <Compile Include="ServiceCode\TdWsService_JT_WorkTicketHistory.cs" />
     <Compile Include="ServiceCode\TdWsService_JT_WorkTicketText.cs" />
+    <Compile Include="ServiceCode\TdWsService_SO_SalesOrderDetail.cs" />
     <Compile Include="ServiceCode\TdWsService_SO_SalesOrderHeader.cs" />
     <Compile Include="ServiceCode\TdWsService_SO_ShipToAddress.cs" />
     <Compile Include="SimpleAES.cs" />
@@ -336,6 +342,9 @@
       <Project>{12b87c2b-044c-4664-8479-c35963f736db}</Project>
       <Name>TdWs.SDataClient</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
