@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 using TechDashboardWEBAPI.ServiceCode;
 using System.Web.Http.Description;
+using TechDashboardWEBAPI.DataAccess;
 
 namespace TechDashboardWEBAPI.Controllers
 {
@@ -34,6 +35,21 @@ namespace TechDashboardWEBAPI.Controllers
         }
 
         /// <summary>
+        /// Get Device ID (or insert new)
+        /// </summary>
+        /// <param name="deviceName"></param>
+        /// <returns></returns>
+        [Route("GetDeviceID/{deviceName}")]
+        [HttpGet]
+        public string GetDeviceID(string deviceName)
+        {
+            if (deviceName.Length == 0)
+                return "";
+            DBMapper dataMapper = new DBMapper();
+            return dataMapper.GetDeviceIdByName(deviceName);
+        }
+
+        /// <summary>
         /// Gets SO_SalesOrderDetail records by filter
         /// </summary>
         /// <param name="filterType"></param>
@@ -43,6 +59,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<SO_SalesOrderDetail> GetSO_SalesOrderDetail(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForSO_SalesOrderDetailFiltered(filterType, v);
         }
 
@@ -56,6 +77,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpPost]
         public List<SO_SalesOrderDetail> PostSO_SalesOrderDetail(string filterType, [FromBody] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             List<SO_SalesOrderDetail> salesOrders = new List<SO_SalesOrderDetail>();
             //return tdws.GetSDataForSO_SalesOrderDetailFiltered(filterType, v);
             if (filterType == "where")
@@ -79,6 +105,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<SO_SalesOrderDetail> GetAllSO_SalesOrderDetail()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForSO_SalesOrderDetailAll();
         }
       
@@ -92,6 +123,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<AR_Customer> GetAR_Customer(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForAR_CustomerFiltered(filterType, v);
         }
 
@@ -105,6 +141,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpPost]
         public List<AR_Customer> GetAR_CustomerPost(string filterType, [FromBody] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             List<AR_Customer> customers = new List<AR_Customer>();
             if (filterType == "where")
             {
@@ -126,6 +167,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet, HttpPost]
         public List<AR_Customer> GetAllAR_Customer()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForAR_CustomerAll();
         }
 
@@ -139,6 +185,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<AR_CustomerContact> GetAR_CustomerContact(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForAR_CustomerContactFiltered(filterType, v);
         }
 
@@ -152,6 +203,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpPost]
         public List<AR_CustomerContact> GetAR_CustomerContactPost(string filterType, [FromBody] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             List<AR_CustomerContact> customerContacts = new List<AR_CustomerContact>();
             if (filterType == "where")
             {
@@ -175,6 +231,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet, HttpPost]
         public List<AR_CustomerContact> GetAllAR_CustomerContact()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForAR_CustomerContactAll();
         }
 
@@ -188,6 +249,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<CI_Item> GetCI_Item(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForCI_ItemFiltered(filterType, v);
         }
 
@@ -199,6 +265,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<CI_Item> GetAllCI_Item()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForCI_ItemAll();
         }
 
@@ -212,6 +283,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<IM_ItemWarehouse> GetIM_ItemWarehouse(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForIM_ItemWarehouseFiltered(filterType, v);
         }
 
@@ -223,6 +299,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<IM_ItemWarehouse> GetAllIM_ItemWarehouse()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForIM_ItemWarehouseAll();
         }
 
@@ -236,6 +317,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ActivityCode> GetJT_ActivityCode(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ActivityCodeFiltered(filterType, v);
         }
 
@@ -247,6 +333,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ActivityCode> GetAllJT_ActivityCode()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ActivityCodeAll();
         }
 
@@ -260,6 +351,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ClassificationCode> GetJT_ClassificationCode(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ClassificationCodeFiltered(filterType, v);
         }
 
@@ -271,6 +367,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ClassificationCode> GetAllJT_ClassificationCode()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ClassificationCodeAll();
         }
 
@@ -284,6 +385,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_CustomerBillingRates> GetJT_CustomerBillingRates(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_CustomerBillingRatesFiltered(filterType, v);
         }
 
@@ -295,6 +401,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_CustomerBillingRates> GetAllJT_CustomerBillingRates()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_CustomerBillingRatesAll();
         }
 
@@ -308,6 +419,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_DailyTimeEntry> GetJT_DailyTimeEntry(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_DailyTimeEntryFiltered(filterType, v);
         }
 
@@ -319,6 +435,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_DailyTimeEntry> GetAllJT_DailyTimeEntry()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_DailyTimeEntryAll();
         }
 
@@ -332,6 +453,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_EarningsCode> GetJT_EarningsCode(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_EarningsCodeFiltered(filterType, v);
         }
 
@@ -343,6 +469,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_EarningsCode> GetAllJT_EarningsCode()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_EarningsCodeAll();
         }
 
@@ -356,6 +487,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_Employee> GetJT_Employee(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_EmployeeFiltered(filterType, v);
         }
 
@@ -367,6 +503,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_Employee> GetAllJT_Employee()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_EmployeeAll();
         }
 
@@ -380,6 +521,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_EquipmentAsset> GetJT_EquipmentAsset(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_EquipmentAssetFiltered(filterType, v);
         }
 
@@ -391,6 +537,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_EquipmentAsset> GetAllJT_EquipmentAsset()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_EquipmentAssetAll();
         }
 
@@ -404,6 +555,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_FieldServiceOptions> GetJT_FieldServiceOptions(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_FieldServiceOptionsFiltered(filterType, v);
         }
 
@@ -415,6 +571,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_FieldServiceOptions> GetAllJT_FieldServiceOptions()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_FieldServiceOptionsAll();
         }
 
@@ -428,6 +589,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_FSDCommunication> GetJT_FSDCommunication(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_FSDCommunicationFiltered(filterType, v);
         }
 
@@ -439,6 +605,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_FSDCommunication> GetAllJT_FSDCommunication()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_FSDCommunicationAll();
         }
 
@@ -452,6 +623,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_LaborText> GetJT_LaborText(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_LaborTextFiltered(filterType, v);
         }
 
@@ -463,6 +639,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_LaborText> GetAllJT_LaborText()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_LaborTextAll();
         }
 
@@ -476,6 +657,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_MiscellaneousCodes> GetJT_MiscellaneousCodes(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_MiscellaneousCodesFiltered(filterType, v);
         }
 
@@ -487,6 +673,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_MiscellaneousCodes> GetAllJT_MiscellaneousCodes()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_MiscellaneousCodesAll();
         }
 
@@ -500,6 +691,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_Options> GetJT_Options(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_OptionsFiltered(filterType, v);
         }
 
@@ -511,6 +707,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_Options> GetAllJT_Options()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_OptionsAll();
         }
 
@@ -524,6 +725,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ServiceAgreementDetail> GetJT_ServiceAgreementDetail(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ServiceAgreementDetailFiltered(filterType, v);
         }
 
@@ -537,6 +743,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpPost]
         public List<JT_ServiceAgreementDetail> GetJT_ServiceAgreementDetailPost(string filterType, [FromBody] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             List<JT_ServiceAgreementDetail> serviceAgreements = new List<JT_ServiceAgreementDetail>();
             if (filterType == "where")
             {
@@ -559,6 +770,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ServiceAgreementDetail> GetAllJT_ServiceAgreementDetail()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ServiceAgreementDetailAll();
         }
 
@@ -572,6 +788,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ServiceAgreementHeader> GetJT_ServiceAgreementHeader(string filterType, [FromUri]string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ServiceAgreementHeaderFiltered(filterType, v);
         }
 
@@ -583,6 +804,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ServiceAgreementHeader> GetAllJT_ServiceAgreementHeader()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ServiceAgreementHeaderAll();
         }
 
@@ -596,6 +822,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ServiceAgreementPMDetail> GetJT_ServiceAgreementPMDetail(string filterType, [FromUri]string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ServiceAgreementPMDetailFiltered(filterType, v);
         }
 
@@ -607,6 +838,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ServiceAgreementPMDetail> GetAllJT_ServiceAgreementPMDetail()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ServiceAgreementPMDetailAll();
         }
 
@@ -620,6 +856,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ServiceEquipmentParts> GetJT_ServiceEquipmentParts(string filterType, [FromUri]string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ServiceEquipmentPartsFiltered(filterType, v);
         }
         /// <summary>
@@ -632,6 +873,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpPost]
         public List<JT_ServiceEquipmentParts> GetJT_ServiceEquipmentPartsPost(string filterType, [FromBody ]string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             List<JT_ServiceEquipmentParts> serviceEquipmentParts = new List<JT_ServiceEquipmentParts>();
             if (filterType == "where")
             {
@@ -654,6 +900,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_ServiceEquipmentParts> GetAllJT_ServiceEquipmentPartsl()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_ServiceEquipmentPartsAll();
         }
 
@@ -667,6 +918,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_Technician> GetJT_Technician(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TechnicianFiltered(filterType, v);
         }
 
@@ -678,6 +934,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_Technician> GetAllJT_Technician()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TechnicianAll();
         }
 
@@ -690,6 +951,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpPut]
         public bool UpdateJT_Technician([FromBody] JT_Technician technician)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.UpdateJT_Technician(technician);
         }
 
@@ -703,6 +969,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_TechnicianScheduleDetail> GetJT_TechnicianScheduleDetail(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TechnicianScheduleDetailFiltered(filterType, v);
         }
 
@@ -714,6 +985,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_TechnicianScheduleDetail> GetAllJT_TechnicianScheduleDetail()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TechnicianScheduleDetailAll();
         }
 
@@ -727,6 +1003,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_TechnicianStatus> GetJT_TechnicianStatus(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TechnicianStatusFiltered(filterType, v);
         }
 
@@ -738,6 +1019,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_TechnicianStatus> GetAllJT_TechnicianStatus()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TechnicianStatusAll();
         }
 
@@ -751,6 +1037,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_TemplateParts> GetJT_TemplateParts(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TemplatePartsFiltered(filterType, v);
         }
 
@@ -762,6 +1053,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_TemplateParts> GetAllJT_TemplateParts()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TemplatePartsAll();
         }
 
@@ -775,6 +1071,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_Transaction> GetJT_Transaction(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TransactionFiltered(filterType, v);
         }
 
@@ -786,6 +1087,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_Transaction> GetAllJT_Transaction()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TransactionAll();
         }
 
@@ -799,6 +1105,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_TransactionHistory> GetJT_TransactionHistory(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TransactionHistoryFiltered(filterType, v);
         }
 
@@ -810,6 +1121,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_TransactionHistory> GetAllJT_TransactionHistory()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TransactionHistoryAll();
         }
 
@@ -823,6 +1139,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_TransactionImportDetail> GetJT_TransactionImportDetail(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TransactionImportDetailFiltered(filterType, v);
         }
 
@@ -834,6 +1155,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_TransactionImportDetail> GetAllJT_TransactionImportDetail()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_TransactionImportDetailAll();
         }
 
@@ -845,7 +1171,12 @@ namespace TechDashboardWEBAPI.Controllers
         [Route("i/JT_TransactionImportDetail")]
         [HttpPost]
         public bool InsertJT_TransactionImportDetail([FromBody]JT_TransactionImportDetail importDetail)
-        { 
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.InsertJT_TransactionImportDetail(importDetail);
         }
 
@@ -859,6 +1190,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_WorkTicket> GetJT_WorkTicket(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_WorkTicketFiltered(filterType, v);
         }
 
@@ -870,6 +1206,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_WorkTicket> GetAllJT_WorkTicket()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_WorkTicketAll();
         }
 
@@ -883,6 +1224,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_WorkTicketAttachment> GetJT_WorkTicketAttachment(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_WorkTicketAttachmentFiltered(filterType, v);
         }
 
@@ -894,6 +1240,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_WorkTicketAttachment> GetAllJT_WorkTicketAttachment()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_WorkTicketAttachmentAll();
         }
 
@@ -907,6 +1258,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_WorkTicketClass> GetJT_WorkTicketClass(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_WorkTicketClassFiltered(filterType, v);
         }
 
@@ -918,6 +1274,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_WorkTicketClass> GetAllJT_WorkTicketClass()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_WorkTicketClassAll();
         }
 
@@ -931,6 +1292,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_WorkTicketHistory> GetJT_WorkTicketHistory(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_WorkTicketHistoryFiltered(filterType, v);
         }
 
@@ -942,6 +1308,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_WorkTicketHistory> GetAllJT_WorkTicketHistory()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_WorkTicketHistoryAll();
         }
 
@@ -955,6 +1326,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_WorkTicketText> GetJT_WorkTicketText(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_WorkTicketTextFiltered(filterType, v);
         }
 
@@ -966,6 +1342,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<JT_WorkTicketText> GetAllJT_WorkTicketText()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForJT_WorkTicketTextAll();
         }
 
@@ -979,6 +1360,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<SO_SalesOrderHeader> GetSO_SalesOrderHeader(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForSO_SalesOrderHeaderFiltered(filterType, v);
         }
 
@@ -990,6 +1376,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<SO_SalesOrderHeader> GetAllSO_SalesOrderHeader()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForSO_SalesOrderHeaderAll();
         }
 
@@ -1003,6 +1394,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpGet]
         public List<SO_ShipToAddress> GetSO_ShipToAddress(string filterType, [FromUri] string v)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForSO_ShipToAddressFiltered(filterType, v);
         }
 
@@ -1016,6 +1412,11 @@ namespace TechDashboardWEBAPI.Controllers
         [HttpPost]
         public List<SO_ShipToAddress> GetSO_ShipToAddressPost(string filterType, [FromBody] string filterTextEncoded)
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             List<SO_ShipToAddress> shipToAddresses = new List<SO_ShipToAddress>();
             if (filterType == "where")
             {
@@ -1038,6 +1439,11 @@ namespace TechDashboardWEBAPI.Controllers
         [Route("all/SO_ShipToAddress")]
         public List<SO_ShipToAddress> GetAllSO_ShipToAddress()
         {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
             return tdws.GetSDataForSO_ShipToAddressAll();
         }
     }

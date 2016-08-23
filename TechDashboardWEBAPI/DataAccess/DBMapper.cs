@@ -10,6 +10,31 @@ namespace TechDashboardWEBAPI.DataAccess
 {
     public class DBMapper
     {
+        public string GetDeviceIdByName(string device)
+        {
+            string sql = @"SELECT id FROM ApplicationDevices WHERE DeviceData = @deviceData";
+            var parameters = new { deviceData = device };
+
+            Guid deviceId;
+
+            try
+            {
+                using (DbConnection connection = ConnectionFactory.GetOpenConnection())
+                {
+                    deviceId = connection.Query<Guid>(sql, parameters).FirstOrDefault();
+                }
+            }
+            catch (Exception exception)
+            {
+                throw;
+            }
+
+            if (deviceId == Guid.Empty)
+                deviceId = Guid.Parse(InsertDevice(device));
+
+            return deviceId.ToString();
+
+        }
         public bool ValidateDevice(Guid deviceId)
         {
             string sql = "SELECT Verified FROM ApplicationDevices WHERE id = @id";
@@ -33,7 +58,7 @@ namespace TechDashboardWEBAPI.DataAccess
 
         public string InsertDevice(string device)
         {
-            string sql = @"INSERT INTO ApplicationDevices(DeviceData, Verified) OUTPUT INSERTED.id VALUES (@deviceData, false)";
+            string sql = @"INSERT INTO ApplicationDevices(DeviceData, Verified) OUTPUT INSERTED.id VALUES (@deviceData, 0)";
             var parameters = new { deviceData = device };
 
             Guid deviceId;

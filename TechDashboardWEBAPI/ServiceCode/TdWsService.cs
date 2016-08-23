@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Rkl.Erp.Sage.Sage100.TableObjects;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using TechDashboardWEBAPI.DataAccess;
 
 namespace TechDashboardWEBAPI.ServiceCode
 {
@@ -54,6 +55,11 @@ namespace TechDashboardWEBAPI.ServiceCode
             }
         }
 
+        /// <summary>
+        /// Validates Authentication
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public bool ValidateAuthentication(HttpRequestMessage request)
         {
             bool accepted = true;
@@ -63,14 +69,23 @@ namespace TechDashboardWEBAPI.ServiceCode
             {
                 return false;
             }
-            SimpleAES decryptText = new SimpleAES("Sm9iT3BzRXhhbXBsZVdlYlNlcnZpY2U=", "Sm9iT3BzRXhhbXBsZVZlY3Rvcg==");
+            SimpleAES decryptText = new SimpleAES("V&WWJ3d39brdR5yUh5(JQGHbi:FB@$^@", "W4aRWS!D$kgD8Xz@");
             string strDecrypt = decryptText.DecryptString(headers.GetValues("x-tdws-authid").First());
+
+            DBMapper dbMapper = new DBMapper();
+            if (!dbMapper.ValidateDevice(Guid.Parse(strDecrypt)))
+                return false;
 
             accepted = ValidateAuthenticationBase(request);
 
             return accepted;
         }
 
+        /// <summary>
+        /// base authentication
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         public bool ValidateAuthenticationBase(HttpRequestMessage request)
         {
             HttpRequestHeaders headers = request.Headers;
@@ -78,7 +93,7 @@ namespace TechDashboardWEBAPI.ServiceCode
             {
                 return false;
             }
-            SimpleAES decryptText = new SimpleAES("Sm9iT3BzRXhhbXBsZVdlYlNlcnZpY2U=", "Sm9iT3BzRXhhbXBsZVZlY3Rvcg==");
+            SimpleAES decryptText = new SimpleAES("V&WWJ3d39brdR5yUh5(JQGHbi:FB@$^@", "W4aRWS!D$kgD8Xz@");
             string strDecrypt = decryptText.DecryptString(headers.GetValues("x-tdws-auth").First());
 
             DateTime dtRequestTime = DateTime.ParseExact(strDecrypt, "yyyy-MM-ddTHH:mm:sszzz", null);

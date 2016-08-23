@@ -58,5 +58,14 @@ namespace TechDashboardWEBAPI.Properties {
                 return ((string)(this["password"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool isUsingDeviceAuthentication {
+            get {
+                return ((bool)(this["isUsingDeviceAuthentication"]));
+            }
+        }
     }
 }

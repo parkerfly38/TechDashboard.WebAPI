@@ -14,5 +14,8 @@
     <Setting Name="password" Type="System.String" Scope="Application">
       <Value Profile="(Default)">RKLsupp@rt</Value>
     </Setting>
+    <Setting Name="isUsingDeviceAuthentication" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

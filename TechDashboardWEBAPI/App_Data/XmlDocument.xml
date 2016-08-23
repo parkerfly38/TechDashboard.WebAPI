@@ -492,9 +492,24 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetDeviceID(System.String)">
+            <summary>
+            Get Device ID (or insert new)
+            </summary>
+            <param name="deviceName"></param>
+            <returns></returns>
+        </member>
         <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetSO_SalesOrderDetail(System.String,System.String)">
             <summary>
             Gets SO_SalesOrderDetail records by filter
+            </summary>
+            <param name="filterType"></param>
+            <param name="v"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.PostSO_SalesOrderDetail(System.String,System.String)">
+            <summary>
+            Gets SO_SalesOrderDetailRecords by posted filter
             </summary>
             <param name="filterType"></param>
             <param name="v"></param>
@@ -1543,6 +1558,20 @@
             <summary>
             Gets all SO_ShipToAddress records
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.ServiceCode.TdWsService.ValidateAuthentication(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Validates Authentication
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.ServiceCode.TdWsService.ValidateAuthenticationBase(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            base authentication
+            </summary>
+            <param name="request"></param>
             <returns></returns>
         </member>
         <member name="M:TechDashboardWEBAPI.SimpleAES.GenerateEncryptionKey">
