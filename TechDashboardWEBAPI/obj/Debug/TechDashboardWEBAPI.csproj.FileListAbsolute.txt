@@ -69,3 +69,4 @@ c:\users\bkresge\documents\visual studio 2015\Projects\TechDashboardWEBAPI\TechD
 c:\users\bkresge\documents\visual studio 2015\Projects\TechDashboardWEBAPI\TechDashboardWEBAPI\bin\XmlDocument.xml
 C:\Users\bkresge\Documents\Visual Studio 2015\Projects\TechDashboardWEBAPI\TechDashboardWEBAPI\bin\System.Linq.Dynamic.dll
 C:\Users\bkresge\Documents\Visual Studio 2015\Projects\TechDashboardWEBAPI\TechDashboardWEBAPI\bin\Rkl.Erp.Sage.Sage100.TableObjects.dll
+C:\Users\bkresge\Documents\Visual Studio 2015\Projects\TechDashboardWEBAPI\TechDashboardWEBAPI\bin\App_Data\XmlDocument.xml

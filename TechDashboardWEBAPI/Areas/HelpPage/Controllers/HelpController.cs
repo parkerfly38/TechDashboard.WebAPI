@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Mvc;
 using TechDashboardWEBAPI.Areas.HelpPage.ModelDescriptions;
 using TechDashboardWEBAPI.Areas.HelpPage.Models;
+using TechDashboardWEBAPI.Controllers;
 
 namespace TechDashboardWEBAPI.Areas.HelpPage.Controllers
 {
@@ -27,6 +29,10 @@ namespace TechDashboardWEBAPI.Areas.HelpPage.Controllers
 
         public ActionResult Index()
         {
+            var displayOrder = new Dictionary<Type, int>();
+            displayOrder.Add(typeof(v1Controller), 1);
+            displayOrder.Add(typeof(v16Controller), 2);
+            ViewBag.DisplayOrder = displayOrder;
             ViewBag.DocumentationProvider = Configuration.Services.GetDocumentationProvider();
             return View(Configuration.Services.GetApiExplorer().ApiDescriptions);
         }

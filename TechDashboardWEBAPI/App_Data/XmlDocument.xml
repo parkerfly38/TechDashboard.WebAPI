@@ -244,6 +244,17 @@
             Gets the error messages associated with this model.
             </summary>
         </member>
+        <member name="T:TechDashboardWEBAPI.Areas.HelpPage.MultiXmlDocumentationProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:TechDashboardWEBAPI.Areas.HelpPage.MultiXmlDocumentationProvider._documentationProviders">
+            <summary>
+            Initializes a new instance of the <see cref="T:TechDashboardWEBAPI.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
         <member name="T:TechDashboardWEBAPI.Areas.HelpPage.HelpPageSampleGenerator">
             <summary>
             This class will generate the samples for the help page.

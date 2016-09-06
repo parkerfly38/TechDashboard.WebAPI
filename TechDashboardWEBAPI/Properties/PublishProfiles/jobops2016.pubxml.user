@@ -13,6 +13,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="ApplicationInsights.config">
       <publishTime>07/27/2016 12:38:33</publishTime>
     </File>
+    <File Include="App_Data/XmlDocument.xml">
+      <publishTime>08/25/2016 09:25:33</publishTime>
+    </File>
     <File Include="Areas/HelpPage/HelpPage.css">
       <publishTime>07/27/2016 12:38:23</publishTime>
     </File>
@@ -62,7 +65,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/27/2016 12:38:23</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/Index.cshtml">
-      <publishTime>07/27/2016 12:38:23</publishTime>
+      <publishTime>08/24/2016 12:38:13</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/ResourceModel.cshtml">
       <publishTime>07/27/2016 12:38:23</publishTime>
@@ -81,6 +84,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/ApplicationInsights.config">
       <publishTime>07/27/2016 12:38:33</publishTime>
+    </File>
+    <File Include="bin/App_Data/XmlDocument.xml">
+      <publishTime>08/25/2016 09:25:33</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>07/28/2016 11:20:53</publishTime>
@@ -197,13 +203,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/27/2016 12:38:22</publishTime>
     </File>
     <File Include="bin/TdWs.SDataClient.dll">
-      <publishTime>06/07/2016 11:05:11</publishTime>
+      <publishTime>08/23/2016 15:38:20</publishTime>
     </File>
     <File Include="bin/TechDashboardWEBAPI.dll">
-      <publishTime>08/04/2016 08:39:25</publishTime>
+      <publishTime>08/25/2016 09:25:33</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>07/27/2016 12:38:23</publishTime>
+    </File>
+    <File Include="bin/XmlDocument.xml">
+      <publishTime>08/25/2016 09:25:33</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
       <publishTime>07/27/2016 12:38:19</publishTime>
@@ -287,7 +296,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/27/2016 12:38:17</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/27/2016 12:38:17</publishTime>
+      <publishTime>08/24/2016 12:35:11</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>07/29/2016 12:38:34</publishTime>
@@ -296,7 +305,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/27/2016 12:38:17</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/04/2016 08:11:46</publishTime>
+      <publishTime>08/23/2016 15:39:20</publishTime>
     </File>
   </ItemGroup>
 </Project>

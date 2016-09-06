@@ -15,7 +15,8 @@ namespace TechDashboardWEBAPI.Controllers
     /// <summary>
     /// Version 1.6 REST api for Job Ops Tech Dashboard
     /// </summary>
-    [RoutePrefix("v1.6")]
+    [ApiExplorerSettings(IgnoreApi = false)]
+    [RoutePrefix("v1-6")]
     public class v16Controller : ApiController
     {
         TdWsService tdws = new TdWsService();
