@@ -103,7 +103,7 @@ namespace TechDashboardWEBAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [Route("all/SO_SalesOrderDetail")]
-        [HttpGet]
+        [HttpGet, HttpPost]
         public List<SO_SalesOrderDetail> GetAllSO_SalesOrderDetail()
         {
             if (Properties.Settings.Default.isUsingDeviceAuthentication)
@@ -898,7 +898,7 @@ namespace TechDashboardWEBAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [Route("all/JT_ServiceEquipmentParts")]
-        [HttpGet]
+        [HttpGet, HttpPost]
         public List<JT_ServiceEquipmentParts> GetAllJT_ServiceEquipmentPartsl()
         {
             if (Properties.Settings.Default.isUsingDeviceAuthentication)
@@ -1374,7 +1374,7 @@ namespace TechDashboardWEBAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [Route("all/SO_SalesOrderHeader")]
-        [HttpGet]
+        [HttpGet, HttpPost]
         public List<SO_SalesOrderHeader> GetAllSO_SalesOrderHeader()
         {
             if (Properties.Settings.Default.isUsingDeviceAuthentication)
@@ -1438,6 +1438,7 @@ namespace TechDashboardWEBAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [Route("all/SO_ShipToAddress")]
+        [HttpGet, HttpPost]
         public List<SO_ShipToAddress> GetAllSO_ShipToAddress()
         {
             if (Properties.Settings.Default.isUsingDeviceAuthentication)
