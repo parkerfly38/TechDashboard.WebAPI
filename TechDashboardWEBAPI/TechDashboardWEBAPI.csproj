@@ -83,13 +83,13 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Rkl.Erp.Sage.Sage100.TableObjects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Rkl.Erp.Sage.Sage100.TableObjects, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Tech Dashboard\ExternalReferences\Rkl.Erp.Sage.Sage100.TableObjects.dll</HintPath>
+      <HintPath>..\..\..\Sage\Sage100\TableObjects\bin\Debug\Rkl.Erp.Sage.Sage100.TableObjects.dll</HintPath>
     </Reference>
-    <Reference Include="Rkl.Erp.Sage.SData.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Rkl.Erp.Sage.SData.Client, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Tech Dashboard\ExternalReferences\Rkl.Erp.Sage.SData.Client.dll</HintPath>
+      <HintPath>..\..\..\Sage\SData\Client\bin\Debug\Rkl.Erp.Sage.SData.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -227,8 +227,14 @@
     <Compile Include="ServiceCode\TdWsService_ApplicationLog.cs" />
     <Compile Include="ServiceCode\TdWsService_AR_Customer.cs" />
     <Compile Include="ServiceCode\TdWsService_AR_CustomerContact.cs" />
+    <Compile Include="ServiceCode\TdWsService_CI_ExtendedDescription.cs" />
+    <Compile Include="ServiceCode\TdWsService_AR_Options.cs" />
+    <Compile Include="ServiceCode\TdWsService_CI_Options.cs" />
+    <Compile Include="ServiceCode\TdWsService_CI_UnitOfMeasure.cs" />
     <Compile Include="ServiceCode\TdWsService_CI_Item.cs" />
+    <Compile Include="ServiceCode\TdWsService_IM_ItemCost.cs" />
     <Compile Include="ServiceCode\TdWsService_IM_ItemWarehouse.cs" />
+    <Compile Include="ServiceCode\TdWsService_IM_Warehouse.cs" />
     <Compile Include="ServiceCode\TdWsService_JT_ActivityCode.cs" />
     <Compile Include="ServiceCode\TdWsService_JT_ClassificationCode.cs" />
     <Compile Include="ServiceCode\TdWsService_JT_CustomerBillingRates.cs" />
@@ -240,6 +246,8 @@
     <Compile Include="ServiceCode\TdWsService_JT_FSDCommunication.cs" />
     <Compile Include="ServiceCode\TdWsService_JT_LaborText.cs" />
     <Compile Include="ServiceCode\TdWsService_JT_MiscellaneousCodes.cs" />
+    <Compile Include="ServiceCode\TdWsService_JT_TimeTrackerOptions.cs" />
+    <Compile Include="ServiceCode\TdWsService_SO_Options.cs" />
     <Compile Include="ServiceCode\TdWsService_JT_Options.cs" />
     <Compile Include="ServiceCode\TdWsService_JT_ServiceAgreementDetail.cs" />
     <Compile Include="ServiceCode\TdWsService_JT_ServiceAgreementHeader.cs" />
@@ -299,6 +307,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\jobops2016.pubxml" />
+    <None Include="Properties\PublishProfiles\jobops2016atech.pubxml" />
+    <None Include="Properties\PublishProfiles\WebDeploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -314,7 +324,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -340,12 +352,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\JobOpsWS\TdWs.SDataClient\TdWs.SDataClient.csproj">
-      <Project>{12b87c2b-044c-4664-8479-c35963f736db}</Project>
-      <Name>TdWs.SDataClient</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

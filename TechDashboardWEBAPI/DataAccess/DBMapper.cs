@@ -99,36 +99,50 @@ namespace TechDashboardWEBAPI.DataAccess
             return deviceId.ToString();
         }
 
-        public void InsertError(ApplicationLog appLog)
+        // dch rkl 12/07/2016 return true/false
+        public bool InsertError(ApplicationLog appLog)
+        //public void InsertError(ApplicationLog appLog)
         {
-            string sql = @"insert into ApplicationLog(log_date,log_level,log_logger,log_message,log_machine_name, log_user_name, log_call_site, log_thread, log_exception, log_stacktrace) 
-                            values(@time_stamp, @level, @logger, @message,@machinename, @user_name, @call_site, @threadid, @log_exception, @stacktrace)";
-
-            var parameters = new
-            {
-                time_stamp = appLog.log_date,
-                level = appLog.log_level,
-                logger = appLog.log_logger,
-                message = appLog.log_message,
-                machinename = appLog.log_machine_name,
-                user_name = appLog.log_user_name,
-                call_site = appLog.log_call_site,
-                threadid = appLog.log_thread,
-                log_exception = appLog.log_exception,
-                stacktrace = appLog.log_stacktrace
-            };
+            bool bSuccess = false;
 
             try
             {
-                using (DbConnection connection = ConnectionFactory.GetOpenConnection())
+                string sql = @"insert into ApplicationLog(log_date,log_level,log_logger,log_message,log_machine_name, log_user_name, log_call_site, log_thread, log_exception, log_stacktrace) 
+                            values(@time_stamp, @level, @logger, @message,@machinename, @user_name, @call_site, @threadid, @log_exception, @stacktrace)";
+
+                var parameters = new
                 {
-                    connection.Execute(sql, parameters);
+                    time_stamp = appLog.log_date,
+                    level = appLog.log_level,
+                    logger = appLog.log_logger,
+                    message = appLog.log_message,
+                    machinename = appLog.log_machine_name,
+                    user_name = appLog.log_user_name,
+                    call_site = appLog.log_call_site,
+                    threadid = appLog.log_thread,
+                    log_exception = appLog.log_exception,
+                    stacktrace = appLog.log_stacktrace
+                };
+
+                try
+                {
+                    using (DbConnection connection = ConnectionFactory.GetOpenConnection())
+                    {
+                        connection.Execute(sql, parameters);
+                        bSuccess = true;
+                    }
+                }
+                catch (Exception exception)
+                {
+                    Console.Write(exception.Message);
                 }
             }
-            catch (Exception exception)
+            catch (Exception ex)
             {
-                Console.Write(exception.Message);
+
             }
+
+            return bSuccess;
         }
     }
 }

@@ -6,7 +6,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="sDataUrl" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">jobops2016adev.rkldev.local/sdata/MasApp/MasContract/JOB/</Value>
+      <Value Profile="(Default)">jobops2016atech.rkldev.local/sdata/MasApp/MasContract/JOB/</Value>
     </Setting>
     <Setting Name="userId" Type="System.String" Scope="Application">
       <Value Profile="(Default)">sdata</Value>

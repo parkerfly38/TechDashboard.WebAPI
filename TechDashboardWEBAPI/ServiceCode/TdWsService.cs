@@ -4,10 +4,11 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Rkl.Erp.Sage.Sage100.TableObjects;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using TechDashboardWEBAPI.DataAccess;
+using Rkl.Erp.Sage.Sage100.TableObjects;
+using Sage.SData.Client;
 
 namespace TechDashboardWEBAPI.ServiceCode
 {
@@ -118,8 +119,14 @@ namespace TechDashboardWEBAPI.ServiceCode
 
         protected List<T> GetData<T>(string filterType, string filterText)
         {
-            TdWs.SDataClient.SDataClient myClient =
-                new TdWs.SDataClient.SDataClient(
+            // dch rkl 01/30/2017 Decode filter text
+            if (filterText.Trim().Length > 0)
+            {
+                filterText = System.Web.HttpUtility.UrlDecode(filterText);
+            }
+
+            SDataClient myClient =
+                new SDataClient(
                     _isUsingHttps,
                     _sDataUrl,
                     _userId,
@@ -137,8 +144,8 @@ namespace TechDashboardWEBAPI.ServiceCode
 
         protected bool UpdateTechnicianRecord(JT_Technician technician)
         {
-            TdWs.SDataClient.SDataClient myClient =
-                new TdWs.SDataClient.SDataClient(
+            SDataClient myClient =
+                new SDataClient(
                     _isUsingHttps,
                     _sDataUrl,
                     _userId,
@@ -148,10 +155,12 @@ namespace TechDashboardWEBAPI.ServiceCode
             return myClient.UpdateTechnicianRecord(technician);
         }
 
-        protected bool InsertRecord<T>(T dataItem)
+        // dch rkl 12/09/2016 return API_Results, which includes success flag & error message(s)
+        //protected bool InsertRecord<T>(T dataItem)
+        protected API_Results InsertRecord<T>(T dataItem)
         {
-            TdWs.SDataClient.SDataClient myClient =
-                new TdWs.SDataClient.SDataClient(
+            SDataClient myClient =
+                new SDataClient(
                     _isUsingHttps,
                     _sDataUrl,
                     _userId,
@@ -160,5 +169,7 @@ namespace TechDashboardWEBAPI.ServiceCode
 
             return myClient.InsertRecord(dataItem);
         }
+
+        // dch rkl 12/09/2016 return API_Results, which includes success flag & error message(s)
     }
 }

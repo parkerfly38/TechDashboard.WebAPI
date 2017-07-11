@@ -22,7 +22,9 @@ namespace TechDashboardWEBAPI.ServiceCode
             return GetData<JT_TransactionImportDetail>(string.Empty, string.Empty);
         }
 
-        public bool InsertJT_TransactionImportDetail(JT_TransactionImportDetail importDetail)
+        // dch rkl 12/09/2016 return API_Results, which includes success flag & error message(s)
+        //public bool InsertJT_TransactionImportDetail(JT_TransactionImportDetail importDetail)
+        public API_Results InsertJT_TransactionImportDetail(JT_TransactionImportDetail importDetail)
         {
             return InsertRecord<JT_TransactionImportDetail>(importDetail);
         }

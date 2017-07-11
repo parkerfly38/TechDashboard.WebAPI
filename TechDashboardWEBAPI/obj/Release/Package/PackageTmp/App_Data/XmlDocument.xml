@@ -510,6 +510,20 @@
             <param name="deviceName"></param>
             <returns></returns>
         </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetCI_Options(System.String,System.String)">
+            <summary>
+            Get filtered CI_Options
+            </summary>
+            <param name="filterType"></param>
+            <param name="v"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.Get_SOOptionsAll">
+            <summary>
+            Get all CI_Options
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetSO_SalesOrderDetail(System.String,System.String)">
             <summary>
             Gets SO_SalesOrderDetail records by filter
@@ -772,6 +786,20 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetSO_Options(System.String,System.String)">
+            <summary>
+            Gets SO_Options records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllSO_Options">
+            <summary>
+            Gets all SO_Options records
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_ServiceAgreementDetail(System.String,System.String)">
             <summary>
             Gets JT_ServiceAgreementDetail records by filter
@@ -949,13 +977,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.InsertJT_TransactionImportDetail(Rkl.Erp.Sage.Sage100.TableObjects.JT_TransactionImportDetail)">
-            <summary>
-            Inserts a new JT_TransactionImportDetail record
-            </summary>
-            <param name="importDetail"></param>
-            <returns></returns>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:TechDashboardWEBAPI.Controllers.v16Controller.InsertJT_TransactionImportDetail(Rkl.Erp.Sage.Sage100.TableObjects.JT_TransactionImportDetail)" -->
         <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_WorkTicket(System.String,System.String)">
             <summary>
             Gets JT_WorkTicket records by filter
@@ -1059,6 +1081,83 @@
         <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllSO_ShipToAddress">
             <summary>
             Gets all SO_ShipToAddress records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetJT_TimeTrackerOptions(System.String,System.String)">
+            <summary>
+            Gets JT_TimeTrackerOptions records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllJT_TimeTrackerOptions">
+            <summary>
+            Gets all JT_TimeTrackerOptions records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetIM_Warehouse(System.String,System.String)">
+            <summary>
+            Gets IM_Warehouse records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllIM_Warehouse">
+            <summary>
+            Gets all IM_Warehouse records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.InsertApplicationLog(TechDashboardWEBAPI.Models.ApplicationLog)">
+            <summary>
+            Inserts a new ApplicationLog record
+            </summary>
+            <param name="appLog"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetCI_ExtendedDescription(System.String,System.String)">
+            <summary>
+            Gets CI_ExtendedDescription records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllCI_ExtendedDescription">
+            <summary>
+            Gets all CI_ExtendedDescription records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetCI_UnitOfMeasure(System.String,System.String)">
+            <summary>
+            Gets CI_UnitOfMeasure records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllCI_UnitOfMeasure">
+            <summary>
+            Gets all CI_UnitOfMeasure records
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAR_Options(System.String,System.String)">
+            <summary>
+            Gets AR_Options records by filter
+            </summary>
+            <param name="filterType">filter type</param>
+            <param name="v">filter body</param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.Controllers.v16Controller.GetAllAR_Options">
+            <summary>
+            Gets all AR_Options records
             </summary>
             <returns></returns>
         </member>
@@ -1458,13 +1557,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:TechDashboardWEBAPI.Controllers.v1Controller.InsertJT_TransactionImportDetail(Rkl.Erp.Sage.Sage100.TableObjects.JT_TransactionImportDetail)">
-            <summary>
-            Inserts a new JT_TransactionImportDetail record
-            </summary>
-            <param name="importDetail"></param>
-            <returns></returns>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:TechDashboardWEBAPI.Controllers.v1Controller.InsertJT_TransactionImportDetail(Rkl.Erp.Sage.Sage100.TableObjects.JT_TransactionImportDetail)" -->
         <member name="M:TechDashboardWEBAPI.Controllers.v1Controller.GetJT_WorkTicket(System.String,System.String)">
             <summary>
             Gets JT_WorkTicket records by filter
@@ -1583,6 +1676,38 @@
             base authentication
             </summary>
             <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.ServiceCode.TdWsService.GetSDataForIM_WarehouseFiltered(System.String,System.String)">
+            <summary>
+            GetSDataForIM_WarehouseFiltered
+            Returns data from IM_Warehouse table via SDATA, using a filter on the data
+            </summary>
+            <param name="filterType"></param>
+            <param name="filterText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.ServiceCode.TdWsService.GetSDataForIM_WarehouseAll">
+            <summary>
+            GetSDataForIM_WarehouseAll
+            Returns data from IM_Warehouse table via SDATA, returning all data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.ServiceCode.TdWsService.GetSDataForJT_TimeTrackerOptionsFiltered(System.String,System.String)">
+            <summary>
+            GetSDataForJT_TimeTrackerOptionsFiltered
+            Returns data from JT_TimeTrackerOptions table via SDATA, using a filter on the data
+            </summary>
+            <param name="filterType"></param>
+            <param name="filterText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TechDashboardWEBAPI.ServiceCode.TdWsService.GetSDataForJT_TimeTrackerOptionsAll">
+            <summary>
+            GetSDataForJT_TimeTrackerOptionsAll
+            Returns data from JT_TimeTrackerOptions table via SDATA, returning all data
+            </summary>
             <returns></returns>
         </member>
         <member name="M:TechDashboardWEBAPI.SimpleAES.GenerateEncryptionKey">

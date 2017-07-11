@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechDashboardWEBAPI", "TechDashboardWEBAPI\TechDashboardWEBAPI.csproj", "{7C213AFB-DD53-4D82-BC83-9A4A00C66735}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdWs.SDataClient", "..\JobOpsWS\TdWs.SDataClient\TdWs.SDataClient.csproj", "{12B87C2B-044C-4664-8479-C35963F736DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdWs.SDataClient", "..\..\WebService\TdWs.SDataClient\TdWs.SDataClient.csproj", "{12B87C2B-044C-4664-8479-C35963F736DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

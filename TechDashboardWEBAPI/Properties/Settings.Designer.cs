@@ -34,7 +34,7 @@ namespace TechDashboardWEBAPI.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("jobops2016adev.rkldev.local/sdata/MasApp/MasContract/JOB/")]
+        [global::System.Configuration.DefaultSettingValueAttribute("jobops2016atech.rkldev.local/sdata/MasApp/MasContract/JOB/")]
         public string sDataUrl {
             get {
                 return ((string)(this["sDataUrl"]));

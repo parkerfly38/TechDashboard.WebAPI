@@ -692,12 +692,14 @@ namespace TechDashboardWEBAPI.Controllers
 
         /// <summary>
         /// Inserts a new JT_TransactionImportDetail record
+        /// dch rkl 12/09/2016 return API_Results, which includes success flag & error message(s)
         /// </summary>
         /// <param name="importDetail"></param>
         /// <returns></returns>
         [Route("i/JT_TransactionImportDetail")]
         [HttpPost]
-        public bool InsertJT_TransactionImportDetail([FromBody]JT_TransactionImportDetail importDetail)
+        //public bool InsertJT_TransactionImportDetail([FromBody]JT_TransactionImportDetail importDetail)
+        public API_Results InsertJT_TransactionImportDetail([FromBody]JT_TransactionImportDetail importDetail)
         {
             return tdws.InsertJT_TransactionImportDetail(importDetail);
         }

@@ -9,6 +9,7 @@ using System.Web.Http;
 using TechDashboardWEBAPI.ServiceCode;
 using System.Web.Http.Description;
 using TechDashboardWEBAPI.DataAccess;
+using TechDashboardWEBAPI.Models;
 
 namespace TechDashboardWEBAPI.Controllers
 {
@@ -51,6 +52,41 @@ namespace TechDashboardWEBAPI.Controllers
         }
 
         /// <summary>
+        /// Get filtered CI_Options
+        /// </summary>
+        /// <param name="filterType"></param>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        [Route("q/CI_Options/{filterType}")]
+        [HttpGet]
+        public List<CI_Options> GetCI_Options(string filterType, [FromUri] string v)
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForCI_OptionsFiltered(filterType, v);
+        }
+
+        /// <summary>
+        /// Get all CI_Options
+        /// </summary>
+        /// <returns></returns>
+        [Route("all/CI_Options")]
+        [HttpGet]
+        public List<CI_Options> Get_SOOptionsAll()
+        {
+
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForCI_OptionsAll();
+        }
+
+        /// <summary>
         /// Gets SO_SalesOrderDetail records by filter
         /// </summary>
         /// <param name="filterType"></param>
@@ -83,6 +119,13 @@ namespace TechDashboardWEBAPI.Controllers
                 if (!tdws.ValidateAuthentication(this.Request))
                     throw new Exception("Invalid authorization on call");
             }
+
+            // dch rkl 01/31/2017 Decode filter
+            if (v.Trim().Length > 0)
+            {
+                v = System.Web.HttpUtility.UrlDecode(v);
+            }
+
             List<SO_SalesOrderDetail> salesOrders = new List<SO_SalesOrderDetail>();
             //return tdws.GetSDataForSO_SalesOrderDetailFiltered(filterType, v);
             if (filterType == "where")
@@ -147,6 +190,13 @@ namespace TechDashboardWEBAPI.Controllers
                 if (!tdws.ValidateAuthentication(this.Request))
                     throw new Exception("Invalid authorization on call");
             }
+
+            // dch rkl 01/31/2017 Decode filter
+            if (v.Trim().Length > 0)
+            {
+                v = System.Web.HttpUtility.UrlDecode(v);
+            }
+
             List<AR_Customer> customers = new List<AR_Customer>();
             if (filterType == "where")
             {
@@ -209,6 +259,13 @@ namespace TechDashboardWEBAPI.Controllers
                 if (!tdws.ValidateAuthentication(this.Request))
                     throw new Exception("Invalid authorization on call");
             }
+
+            // dch rkl 01/31/2017 Decode filter
+            if (v.Trim().Length > 0)
+            {
+                v = System.Web.HttpUtility.UrlDecode(v);
+            }
+
             List<AR_CustomerContact> customerContacts = new List<AR_CustomerContact>();
             if (filterType == "where")
             {
@@ -306,6 +363,30 @@ namespace TechDashboardWEBAPI.Controllers
                     throw new Exception("Invalid authorization on call");
             }
             return tdws.GetSDataForIM_ItemWarehouseAll();
+        }
+
+        [Route("q/IM_ItemCost")]
+        [HttpGet, HttpPost]
+        public List<IM_ItemCost> GetIM_ItemCost(string filterType, [FromUri] string v)
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForIM_ItemCost(filterType, v);
+        }
+
+        [Route("all/IM_ItemCost")]
+        [HttpGet, HttpPost]
+        public List<IM_ItemCost> GetAllIM_ItemCost()
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForIM_ItemCost();
         }
 
         /// <summary>
@@ -716,6 +797,41 @@ namespace TechDashboardWEBAPI.Controllers
             return tdws.GetSDataForJT_OptionsAll();
         }
 
+        // dch rkl 11/16/2016 add SO_Options
+        /// <summary>
+        /// Gets SO_Options records by filter
+        /// </summary>
+        /// <param name="filterType">filter type</param>
+        /// <param name="v">filter body</param>
+        /// <returns></returns>
+        [Route("q/SO_Options/{filterType}")]
+        [HttpGet]
+        public List<SO_Options> GetSO_Options(string filterType, [FromUri] string v)
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForSO_OptionsFiltered(filterType, v);
+        }
+
+        /// <summary>
+        /// Gets all SO_Options records
+        /// </summary>
+        /// <returns></returns>
+        [Route("all/SO_Options")]
+        [HttpGet]
+        public List<SO_Options> GetAllSO_Options()
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForSO_OptionsAll();
+        }
+
         /// <summary>
         /// Gets JT_ServiceAgreementDetail records by filter
         /// </summary>
@@ -749,6 +865,13 @@ namespace TechDashboardWEBAPI.Controllers
                 if (!tdws.ValidateAuthentication(this.Request))
                     throw new Exception("Invalid authorization on call");
             }
+
+            // dch rkl 01/31/2017 Decode filter
+            if (v.Trim().Length > 0)
+            {
+                v = System.Web.HttpUtility.UrlDecode(v);
+            }
+
             List<JT_ServiceAgreementDetail> serviceAgreements = new List<JT_ServiceAgreementDetail>();
             if (filterType == "where")
             {
@@ -794,6 +917,7 @@ namespace TechDashboardWEBAPI.Controllers
                 if (!tdws.ValidateAuthentication(this.Request))
                     throw new Exception("Invalid authorization on call");
             }
+
             return tdws.GetSDataForJT_ServiceAgreementHeaderFiltered(filterType, v);
         }
 
@@ -879,6 +1003,13 @@ namespace TechDashboardWEBAPI.Controllers
                 if (!tdws.ValidateAuthentication(this.Request))
                     throw new Exception("Invalid authorization on call");
             }
+
+            // dch rkl 01/31/2017 Decode filter
+            if (v.Trim().Length > 0)
+            {
+                v = System.Web.HttpUtility.UrlDecode(v);
+            }
+
             List<JT_ServiceEquipmentParts> serviceEquipmentParts = new List<JT_ServiceEquipmentParts>();
             if (filterType == "where")
             {
@@ -1166,12 +1297,14 @@ namespace TechDashboardWEBAPI.Controllers
 
         /// <summary>
         /// Inserts a new JT_TransactionImportDetail record
+        /// dch rkl 12/09/2016 return API_Results, which includes success flag & error message(s)
         /// </summary>
         /// <param name="importDetail"></param>
         /// <returns></returns>
         [Route("i/JT_TransactionImportDetail")]
         [HttpPost]
-        public bool InsertJT_TransactionImportDetail([FromBody]JT_TransactionImportDetail importDetail)
+        public API_Results InsertJT_TransactionImportDetail([FromBody]JT_TransactionImportDetail importDetail)
+        //public bool InsertJT_TransactionImportDetail([FromBody]JT_TransactionImportDetail importDetail)
         {
             if (Properties.Settings.Default.isUsingDeviceAuthentication)
             {
@@ -1418,6 +1551,13 @@ namespace TechDashboardWEBAPI.Controllers
                 if (!tdws.ValidateAuthentication(this.Request))
                     throw new Exception("Invalid authorization on call");
             }
+
+            // dch rkl 01/31/2017 Decode filter text
+            if (filterTextEncoded.Trim().Length > 0)
+            {
+                filterTextEncoded = System.Web.HttpUtility.UrlDecode(filterTextEncoded);
+            }
+
             List<SO_ShipToAddress> shipToAddresses = new List<SO_ShipToAddress>();
             if (filterType == "where")
             {
@@ -1448,5 +1588,204 @@ namespace TechDashboardWEBAPI.Controllers
             }
             return tdws.GetSDataForSO_ShipToAddressAll();
         }
+
+        // dch rkl 11/03/2016 Add JT_TimeTrackerOptions BEGIN
+        /// <summary>
+        /// Gets JT_TimeTrackerOptions records by filter
+        /// </summary>
+        /// <param name="filterType">filter type</param>
+        /// <param name="v">filter body</param>
+        /// <returns></returns>
+        [Route("q/JT_TimeTrackerOptions/{filterType}")]
+        [HttpGet]
+        public List<JT_TimeTrackerOptions> GetJT_TimeTrackerOptions(string filterType, [FromUri] string v)
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForJT_TimeTrackerOptionsFiltered(filterType, v);
+        }
+
+        /// <summary>
+        /// Gets all JT_TimeTrackerOptions records
+        /// </summary>
+        /// <returns></returns>
+        [Route("all/JT_TimeTrackerOptions")]
+        [HttpGet]
+        public List<JT_TimeTrackerOptions> GetAllJT_TimeTrackerOptions()
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForJT_TimeTrackerOptionsAll();
+        }
+        // dch rkl 11/03/2016 Add JT_TimeTrackerOptions END
+
+        // dch rkl 12/01/2016 Add IM_Warehouse BEGIN
+        /// <summary>
+        /// Gets IM_Warehouse records by filter
+        /// </summary>
+        /// <param name="filterType">filter type</param>
+        /// <param name="v">filter body</param>
+        /// <returns></returns>
+        [Route("q/IM_Warehouse/{filterType}")]
+        [HttpGet]
+        public List<IM_Warehouse> GetIM_Warehouse(string filterType, [FromUri] string v)
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForIM_WarehouseFiltered(filterType, v);
+        }
+
+        /// <summary>
+        /// Gets all IM_Warehouse records
+        /// </summary>
+        /// <returns></returns>
+        [Route("all/IM_Warehouse")]
+        [HttpGet]
+        public List<IM_Warehouse> GetAllIM_Warehouse()
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForIM_WarehouseAll();
+        }
+        // dch rkl 12/01/2016 Add IM_Warehouse END
+
+        // dch rkl 12/07/2016 Add ApplicationLog POST
+        /// <summary>
+        /// Inserts a new ApplicationLog record
+        /// </summary>
+        /// <param name="appLog"></param>
+        /// <returns></returns>
+        [Route("i/ApplicationLog")]
+        [HttpPost]
+        public bool InsertApplicationLog([FromBody]ApplicationLog appLog)
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            DBMapper oDBMap = new DataAccess.DBMapper();
+            return oDBMap.InsertError(appLog);
+        }
+
+        // dch rkl 01/13/2017 Add CI_ExtendedDescription BEGIN
+        /// <summary>
+        /// Gets CI_ExtendedDescription records by filter
+        /// </summary>
+        /// <param name="filterType">filter type</param>
+        /// <param name="v">filter body</param>
+        /// <returns></returns>
+        [Route("q/CI_ExtendedDescription/{filterType}")]
+        [HttpGet]
+        public List<CI_ExtendedDescription> GetCI_ExtendedDescription(string filterType, [FromUri] string v)
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForCI_ExtendedDescriptionFiltered(filterType, v);
+        }
+
+        /// <summary>
+        /// Gets all CI_ExtendedDescription records
+        /// </summary>
+        /// <returns></returns>
+        [Route("all/CI_ExtendedDescription")]
+        [HttpGet]
+        public List<CI_ExtendedDescription> GetAllCI_ExtendedDescription()
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForCI_ExtendedDescriptionAll();
+        }
+        // dch rkl 01/13/2017 Add CI_ExtendedDescription END
+
+        // dch rkl 01/20/2017 Added CI_UnitOfMeasure table BEGIN
+        /// <summary>
+        /// Gets CI_UnitOfMeasure records by filter
+        /// </summary>
+        /// <param name="filterType">filter type</param>
+        /// <param name="v">filter body</param>
+        /// <returns></returns>
+        [Route("q/CI_UnitOfMeasure/{filterType}")]
+        [HttpGet]
+        public List<CI_UnitOfMeasure> GetCI_UnitOfMeasure(string filterType, [FromUri] string v)
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForCI_UnitOfMeasureFiltered(filterType, v);
+        }
+
+        /// <summary>
+        /// Gets all CI_UnitOfMeasure records
+        /// </summary>
+        /// <returns></returns>
+        [Route("all/CI_UnitOfMeasure")]
+        [HttpGet]
+        public List<CI_UnitOfMeasure> GetAllCI_UnitOfMeasure()
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForCI_UnitOfMeasureAll();
+        }
+        // dch rkl 01/20/2017 Added CI_UnitOfMeasure table END
+
+        // dch rkl 01/23/2017 Added AR_Options table BEGIN
+        /// <summary>
+        /// Gets AR_Options records by filter
+        /// </summary>
+        /// <param name="filterType">filter type</param>
+        /// <param name="v">filter body</param>
+        /// <returns></returns>
+        [Route("q/AR_Options/{filterType}")]
+        [HttpGet]
+        public List<AR_Options> GetAR_Options(string filterType, [FromUri] string v)
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForAR_OptionsFiltered(filterType, v);
+        }
+
+        /// <summary>
+        /// Gets all AR_Options records
+        /// </summary>
+        /// <returns></returns>
+        [Route("all/AR_Options")]
+        [HttpGet]
+        public List<AR_Options> GetAllAR_Options()
+        {
+            if (Properties.Settings.Default.isUsingDeviceAuthentication)
+            {
+                if (!tdws.ValidateAuthentication(this.Request))
+                    throw new Exception("Invalid authorization on call");
+            }
+            return tdws.GetSDataForAR_OptionsAll();
+        }
+        // dch rkl 01/20/2017 Added CI_UnitOfMeasure table END
     }
 }
